@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %} Page {% endblock %}</title>
+    {% load static %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" />
+    <link rel="canonical" href="https://fonts.google.com/specimen/Montserrat" />
+  </head>
+  <body>
+    <main id="page-wrapper">
+      <div class="container">{% block content %} {% endblock %}</div>
+    </main>
+  </body>
+</html>

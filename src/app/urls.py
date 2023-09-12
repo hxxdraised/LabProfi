@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic.base import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
+from app import data
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('', TemplateView.as_view(template_name="home.html"), name="home"),
+    path('services/', TemplateView.as_view(template_name="service_select.html", extra_context={"specialists": data.specialists}), name="service_select"),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
