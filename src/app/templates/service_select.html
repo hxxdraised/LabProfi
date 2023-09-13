@@ -1,0 +1,8 @@
+{% extends "base.html" %} {% block content %}
+<h2>Специалисты</h2>
+<div id="specialists-list">
+  {% for specialist in specialists %}
+  <div class="specialist-card">{{specialist}}</div>
+  {% endfor %}
+</div>
+{% endblock %}
