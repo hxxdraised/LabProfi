@@ -2,6 +2,7 @@
 :root {
     --primary-color: #1D7373;
     --border-color: #d6d6d6;
+    --shadow-color: #bdbdbd;
 }
 
 
@@ -34,11 +35,19 @@ h2 {
 }
 
 #page-wrapper {
-    padding: 4rem 5rem 0 5rem
+    padding: 4rem 5rem 0 5rem;
 }
 
 .specialist-card {
     padding: 2rem;
     border: 1px var(--border-color) solid;
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem
+    
+}
+
+.specialist-card:hover{
+    box-shadow: 0 5px 10px var(--shadow-color);
 }

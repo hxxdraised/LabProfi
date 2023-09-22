@@ -20,9 +20,11 @@ from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 from app import data
+from app.views import home_page, service_page, services_list_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name="home.html"), name="home"),
-    path('services/', TemplateView.as_view(template_name="service_select.html", extra_context={"specialists": data.specialists}), name="service_select"),
+    path('', home_page, name="home"),
+    path('services/', services_list_page, name="service_select"),
+    path('services/<int:id>/', service_page, name="service_info"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
