@@ -20,6 +20,16 @@ h2 {
     font-weight: 700;
 }
 
+.flex {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
 .button {
     border: none;
     padding: 1rem 2rem;
@@ -51,3 +61,32 @@ h2 {
 .specialist-card:hover{
     box-shadow: 0 5px 10px var(--shadow-color);
 }
+
+.search-container {
+    border: 1px var(--border-color) solid;
+    height: 3rem;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.search-container input {
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+}
+
+.search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
