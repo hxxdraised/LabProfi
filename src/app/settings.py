@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'
+    'app',
+    'auth_users'
 ]
 
 MIDDLEWARE = [
@@ -82,8 +83,12 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': os.environ.get('DB_DRIVER','django.db.backends.postgresql'),
+        'USER': os.environ.get('POSTGRES_USER','lab_work_user'),
+        'PASSWORD':os.environ.get('POSTGRES_PASSWORD','password'),
+        'NAME': os.environ.get('POSTGRES_DB','lab_work_db'),
+        'PORT': os.environ.get('POSTGRES_PORT','5432'),
+        'HOST': os.environ.get('POSTGRES_HOST','postgres'),
     }
 }
 
@@ -105,6 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_REDIRECT_URL = 'profile'
 
 
 # Internationalization

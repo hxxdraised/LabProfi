@@ -30,6 +30,14 @@ h2 {
     justify-content: space-between;
 }
 
+.items-center {
+    align-items: center;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
 .button {
     border: none;
     padding: 1rem 2rem;
@@ -39,13 +47,21 @@ h2 {
     color: #fff;
 }
 
+.navbar a {
+    color: #ffffff8c !important;
+}
+
 #welcome-wrapper {
-    margin-top: 45vh;
+    margin-top: 20rem;
     text-align: center;
 }
 
 #page-wrapper {
     padding: 4rem 5rem 0 5rem;
+}
+
+#specialists-list a{
+    color: #2b2b2b;
 }
 
 .specialist-card {
@@ -64,26 +80,18 @@ h2 {
 
 .search-container {
     border: 1px var(--border-color) solid;
-    height: 3rem;
-}
-
-.items-center {
-    align-items: center;
+    height: fit-content;
 }
 
 .search-container input {
     padding: 6px;
     border: none;
-    margin-top: 8px;
-    margin-right: 16px;
     font-size: 17px;
 }
 
 .search-container button {
     float: right;
     padding: 6px 10px;
-    margin-top: 8px;
-    margin-right: 16px;
     background: var(--primary-color);
     color: white;
     font-size: 17px;
