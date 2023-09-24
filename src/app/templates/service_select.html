@@ -17,8 +17,11 @@
   {% for specialist in specialists %}
   <a href="{% url 'service_info' id=specialist.id %}" class="text-decoration-none">
     <div class="specialist-card">
-      <img src="/static/{{specialist.preview_img}}" alt="preview" height="90rem" width="100rem"/>
-      <h3>{{specialist.name}}</h3>
+      <img src="{{specialist.preview_image.url}}" alt="preview" height="90rem" width="100rem"/>
+      <div>
+        <p>Услуги специалиста</p>
+        <h4>{{specialist.name}}</h4>
+      </div>
     </div>
   </a>
   {% endfor %}

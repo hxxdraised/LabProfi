@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from app import data
+from app.models import Specialist
 
 
 def home_page(request):
@@ -8,10 +8,11 @@ def home_page(request):
 def services_list_page(request):
     query = request.GET.get("q")
     if query:
-        specialists = [s for s in data.specialists if query.lower() in s['name'].lower()]
+        specialists = Specialist.objects.filter(name__icontains=query)
     else:
-        specialists = data.specialists
+        specialists = Specialist.objects.all()
     return render(request, "service_select.html", {"specialists": specialists, "query": query})
 
 def service_page(request, id):
-    return render(request, "service_info.html", {"specialist": data.specialists[id]})
+    specialist = Specialist.objects.get(pk=id)
+    return render(request, "service_info.html", {"specialist": specialist})

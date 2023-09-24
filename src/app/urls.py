@@ -29,4 +29,5 @@ urlpatterns = [
     path('', home_page, name="home"),
     path('services/', services_list_page, name="service_select"),
     path('services/<int:id>/', service_page, name="service_info"),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
