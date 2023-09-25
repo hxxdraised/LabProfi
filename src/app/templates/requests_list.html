@@ -11,6 +11,7 @@
       <p>Заявка на специалиста <b>{{ request.specialist.name }}</b></p>
       <p>Статус: <b>{{ request.get_status_display }}</b></p>
       <p>Cоздана: <b>{{ request.created_at }}</b></p>
+      <p>Комментарий: <b>{{ request.comment }}</b></p>
     </div>
   </div>
   {% endfor %}
