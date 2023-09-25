@@ -5,12 +5,21 @@ from django.core.files.images import get_image_dimensions
 
 
 class UserRegistrationForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
+    password = forms.CharField(label='Пароль', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Пароль(повторно)', widget=forms.PasswordInput)
 
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email')
+        labels = {
+            'username': 'Имя пользователя',
+            'first_name': 'Имя',
+            'last_name': 'Фамилия',
+            'email': 'Email',
+        }
+        help_texts = {
+            'username': '',
+        }
 
     def clean_password2(self):
         cd = self.cleaned_data
