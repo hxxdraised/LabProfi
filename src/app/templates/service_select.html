@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 <div class="flex space-between items-center my-4">
-  <h2>Специалисты</h2>
+  <h2>Услуги</h2>
   <div class="search-container">
     <form action="{% url 'service_select' %}" method="get">
       {% if query %}
@@ -16,7 +16,7 @@
 <div id="specialists-list">
   {% for specialist in specialists %}
   <a href="{% url 'service_info' id=specialist.id %}" class="text-decoration-none">
-    <div class="specialist-card">
+    <div class="list-view-card">
       <img src="{{specialist.preview_image.url}}" alt="preview" height="90rem" width="100rem"/>
       <div>
         <p>Услуги специалиста</p>

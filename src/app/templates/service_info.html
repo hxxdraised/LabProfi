@@ -8,8 +8,22 @@
 <div class="flex mt-5">
   <img src="{{specialist.preview_image.url}}" alt="preview" height="300rem"/>
   <div>
-    <h3>{{specialist.name}}</h3>
-    <p>{{specialist.desc}}</p>
+    <h3 class="mb-4">{{specialist.name}}</h3>
+    <p class="text-muted mb-5">{{specialist.desc}}</p>
+
+    <h4 class="my-4">Отправить заявку на услугу</h4>
+    {% if user.is_authenticated %}
+      <p class="text-muted">Комментарий к заявке (по желанию)</p>
+      <form class="review-form" action="{% url 'send_request' specialist.id %}" method="post">
+          <div>
+              {{ request_form.as_p }}
+              {% csrf_token %}
+              <p><input class="button primary" type="submit" value="Отправить"></p>
+          </div>
+      </form>
+    {% else %}
+        <p class="mb-5"><b><a class="text-decoration-none" href="{% url 'login' %}">Войдите в аккаунт</a></b>, чтобы отправить заявку</p>
+    {% endif %}
   </div>
 </div>
 

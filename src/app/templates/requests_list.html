@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="flex space-between items-center my-4">
+  <h2>Ваши заявки</h2>
+</div>
+
+<div id="specialists-list">
+  {% for request in requests %}
+  <div class="list-view-card">
+    <img src="{{request.specialist.preview_image.url}}" alt="preview" height="90rem" width="100rem"/>
+    <div>
+      <p>Заявка на специалиста <b>{{ request.specialist.name }}</b></p>
+      <p>Статус: <b>{{ request.get_status_display }}</b></p>
+      <p>Cоздана: <b>{{ request.created_at }}</b></p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from app.views import home_page, service_page, services_list_page
+from app.views import home_page, requests_list, send_request, service_page, services_list_page
 
 urlpatterns = [
     path('adminer/', admin.site.urls),
@@ -27,5 +27,7 @@ urlpatterns = [
     path('', home_page, name="home"),
     path('services/', services_list_page, name="service_select"),
     path('services/<int:id>/', service_page, name="service_info"),
+    path('services/<int:id>/request', send_request, name="send_request"),
+    path('requests/', requests_list, name="requests_list"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
